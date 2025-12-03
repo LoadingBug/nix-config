@@ -73,7 +73,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -101,18 +100,10 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-    xkb = { 
-      layout = "gb";
-      variant = "";
-    };
-  };
-  services.displayManager.defaultSession = "xfce";
+  services.xserver.enable = true; # optional
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure console keymap
   console.keyMap = "uk";
@@ -136,6 +127,13 @@
     #media-session.enable = true;
   };
 
+  programs = {
+    firefox.enable = true;
+    git.enable = true;
+    neovim.enable = true;
+    steam.enable = true;
+  };
+
   # TODO: Set your hostname
   networking.hostName = "nixos-t480";
 
@@ -149,8 +147,7 @@
       initialPassword = "Estg2398#0";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-	AAAAC3NzaC1lZDI1NTE5AAAAIPbjqJ1sibKK+jwxS8ZhewgypIOyMxBmmSon7vObDrtq
+	"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPbjqJ1sibKK+jwxS8ZhewgypIOyMxBmmSon7vObDrtq loadingweb06@gmail.com"
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager"];
@@ -171,5 +168,5 @@
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system.stateVersion = "25.05";
 }
