@@ -139,7 +139,7 @@
     libreoffice
     jetbrains.idea-community
     discord
-  ]
+  ];
 
   # TODO: Set your hostname
   networking.hostName = "nixos-t480";
