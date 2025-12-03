@@ -139,6 +139,7 @@
     libreoffice
     jetbrains.idea-community
     discord
+    obsidian
   ];
 
   # TODO: Set your hostname
