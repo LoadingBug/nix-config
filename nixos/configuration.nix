@@ -82,6 +82,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable blutetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -140,6 +144,7 @@
     jetbrains.idea-community
     discord
     obsidian
+    tor-browser
   ];
 
   # TODO: Set your hostname
